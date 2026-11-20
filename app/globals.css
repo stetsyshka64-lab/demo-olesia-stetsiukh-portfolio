@@ -1,3 +1,79 @@
 @import "tailwindcss";
 
-/* Токени дизайн-системи оголошуємо тут, у блоці @theme (наступний крок). */
+/*
+  Токени дизайн-системи. Це єдине джерело значень:
+  Storybook і компоненти читають їх звідси, hex і px деінде не пишемо.
+  Джерело: макет першого екрана у Figma (файл Portfolio, кадр Portfolio Landing Page).
+*/
+@theme {
+  /* Скидаємо стандартні палітру, радіуси й розміри тексту Tailwind:
+     лишається тільки те, що є в системі. */
+  --color-*: initial;
+  --radius-*: initial;
+  --text-*: initial;
+
+  /* Кольори */
+  --color-canvas: #faf8f8; /* фон сторінки */
+  --color-surface: #f9e2e6; /* поверхня: круги, вторинна кнопка в шапці */
+  --color-line: #720002; /* рамки кнопок, обводка стікера */
+  --color-line-subtle: #e8cdd3; /* розділювачі й межі карток (пропозиція) */
+  --color-accent: #720002; /* заливка основної кнопки */
+  --color-on-accent: #faf8f8; /* текст на акценті */
+  --color-ink: #000000; /* основний текст */
+  --color-ink-muted: #5c4a4d; /* приглушений текст (пропозиція) */
+  --color-danger: #9a3412; /* помилка: текст і межа поля (пропозиція) */
+
+  /* Шрифт: Unbounded підключається в app/fonts.ts */
+  --font-sans: var(--font-unbounded), sans-serif;
+
+  /* Радіуси */
+  --radius-control: 2px; /* кнопки, поля */
+  --radius-card: 34px; /* портрет, картки */
+
+  /* Розміри тексту: розмір, висота рядка, трекінг, жирність */
+  --text-caption: 14px; /* мітки меню */
+  --text-caption--line-height: 24px;
+  --text-caption--letter-spacing: 0.7px;
+  --text-caption--font-weight: 400;
+
+  --text-button: 14px; /* текст кнопок */
+  --text-button--line-height: 24px;
+  --text-button--letter-spacing: 0.7px;
+  --text-button--font-weight: 500;
+
+  --text-body: 16px; /* над-заголовок, стрічка процесу (великі літери: клас uppercase) */
+  --text-body--line-height: 24px;
+  --text-body--letter-spacing: 0px;
+  --text-body--font-weight: 400;
+
+  --text-lead: 18px; /* лід; розділювач «•» з класом font-light */
+  --text-lead--line-height: 28px;
+  --text-lead--letter-spacing: 0px;
+  --text-lead--font-weight: 600;
+
+  --text-heading: 20px; /* ім'я-логотип, текст стікера */
+  --text-heading--line-height: 28px;
+  --text-heading--letter-spacing: 0px;
+  --text-heading--font-weight: 600;
+
+  --text-display: 64px; /* заголовок героя */
+  --text-display--line-height: 64px;
+  --text-display--letter-spacing: 0px;
+  --text-display--font-weight: 800;
+
+  /* Пропорції картинок */
+  --aspect-portrait: 485 / 536; /* портрет, ≈9:10 */
+  --aspect-cover: 4 / 3; /* обкладинка роботи (пропозиція) */
+
+  /* Відступи: база 4px. Дозволені числа в класах: 3, 6, 8, 12, 15
+     (12, 24, 32, 48, 60 px). Інших не використовуємо. */
+  --spacing: 4px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+}

@@ -1,0 +1,92 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Tokens" />
+
+# Токени
+
+Усі значення живуть в одному місці: блок `@theme` у `app/globals.css`. Ця сторінка читає їх звідти й нічого не дублює. Джерело: макет першого екрана у Figma.
+
+## Кольори
+
+<ColorPalette>
+  <ColorItem title="canvas" subtitle="фон сторінки" colors={["var(--color-canvas)"]} />
+  <ColorItem title="surface" subtitle="поверхня: круги, кнопка в шапці" colors={["var(--color-surface)"]} />
+  <ColorItem title="line" subtitle="рамки кнопок, обводка стікера" colors={["var(--color-line)"]} />
+  <ColorItem title="line-subtle" subtitle="розділювачі й межі карток (пропозиція)" colors={["var(--color-line-subtle)"]} />
+  <ColorItem title="accent" subtitle="заливка основної кнопки" colors={["var(--color-accent)"]} />
+  <ColorItem title="on-accent" subtitle="текст на акценті" colors={["var(--color-on-accent)"]} />
+  <ColorItem title="ink" subtitle="основний текст" colors={["var(--color-ink)"]} />
+  <ColorItem title="ink-muted" subtitle="приглушений текст (пропозиція)" colors={["var(--color-ink-muted)"]} />
+  <ColorItem title="danger" subtitle="помилка: текст і межа поля (пропозиція)" colors={["var(--color-danger)"]} />
+</ColorPalette>
+
+## Шрифт
+
+Unbounded. Підключений у `app/fonts.ts` з латиницею й кирилицею.
+
+<div className="sb-unstyled flex flex-col gap-6 bg-canvas p-6 font-sans text-ink">
+  <div>
+    <div className="text-display">Від ідеї до екранів разом.</div>
+    <div className="text-caption text-ink-muted">text-display: 64 / 64, 800</div>
+  </div>
+  <div>
+    <div className="text-heading">Олеся Стецюх</div>
+    <div className="text-caption text-ink-muted">text-heading: 20 / 28, 600 (логотип, текст стікера)</div>
+  </div>
+  <div>
+    <div className="text-lead">Допоможу стартапам і малому бізнесу пройти шлях від ідеї до готових UI-екранів.</div>
+    <div className="text-caption text-ink-muted">text-lead: 18 / 28, 600 (лід; розділювач «•» з font-light)</div>
+  </div>
+  <div>
+    <div className="text-body uppercase">UI-дизайнерка · Figma</div>
+    <div className="text-caption text-ink-muted">text-body + uppercase: 16 / 24, 400 (над-заголовок, стрічка процесу)</div>
+  </div>
+  <div>
+    <div className="text-caption uppercase">Роботи · Про мене · Контакти</div>
+    <div className="text-caption text-ink-muted">text-caption + uppercase: 14 / 24, 400, трекінг 0,7px (мітки меню)</div>
+  </div>
+  <div>
+    <div className="text-button">Переглянути роботи</div>
+    <div className="text-caption text-ink-muted">text-button: 14 / 24, 500, трекінг 0,7px (текст кнопок)</div>
+  </div>
+</div>
+
+## Радіуси
+
+<div className="sb-unstyled flex items-end gap-6 bg-canvas p-6 font-sans text-ink">
+  <div className="flex flex-col gap-3">
+    <div className="h-15 w-1/4 border border-line bg-surface rounded-control" />
+    <div className="text-caption">rounded-control (кнопки, поля)</div>
+  </div>
+  <div className="flex flex-col gap-3">
+    <div className="h-15 w-1/4 border border-line bg-surface rounded-card" />
+    <div className="text-caption">rounded-card (портрет, картки)</div>
+  </div>
+</div>
+
+## Пропорції картинок
+
+<div className="sb-unstyled flex items-end gap-6 bg-canvas p-6 font-sans text-ink">
+  <div className="flex flex-col gap-3">
+    <div className="w-1/4 border border-line bg-surface aspect-portrait" />
+    <div className="text-caption">aspect-portrait (≈9:10)</div>
+  </div>
+  <div className="flex flex-col gap-3">
+    <div className="w-1/4 border border-line bg-surface aspect-cover" />
+    <div className="text-caption">aspect-cover (4:3, пропозиція)</div>
+  </div>
+</div>
+
+## Відступи
+
+Дозволені тільки ці кроки. Інших у проєкті не використовуємо.
+
+<div className="sb-unstyled flex items-end gap-6 bg-canvas p-6 font-sans text-ink">
+  <div className="flex flex-col gap-3"><div className="size-3 bg-accent" /><div className="text-caption">3 · 12 px</div></div>
+  <div className="flex flex-col gap-3"><div className="size-6 bg-accent" /><div className="text-caption">6 · 24 px</div></div>
+  <div className="flex flex-col gap-3"><div className="size-8 bg-accent" /><div className="text-caption">8 · 32 px</div></div>
+  <div className="flex flex-col gap-3"><div className="size-12 bg-accent" /><div className="text-caption">12 · 48 px</div></div>
+  <div className="flex flex-col gap-3"><div className="size-15 bg-accent" /><div className="text-caption">15 · 60 px</div></div>
+</div>
+
+Відстань між великими секціями й відступ між текстом героя та кнопками поки не визначені.
