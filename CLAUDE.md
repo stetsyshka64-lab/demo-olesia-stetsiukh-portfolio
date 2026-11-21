@@ -53,10 +53,10 @@
 
 Лежать у `components/`, історія й docs поруч: `<Компонент>.stories.tsx`, title `Components/<Назва>`.
 
-- `Button`: `variant` (`primary` на `accent`; `secondary` із заливкою `canvas` і межею `ink-muted`; `tinted` із заливкою `surface` і межею `line`, для шапки), `size` (`md`, `lg`), `icon` (`none`, `arrow`), `href` (стає `next/link`; `disabled`, `type`, `onClick` тоді не діють), `disabled`, `disabledReason`. Вимкнена через `aria-disabled`, пояснення під нею зв'язане через `aria-describedby`.
+- `Button`: `variant` (`primary` на `accent`; `secondary` із заливкою `canvas` і межею `ink-muted`; `tinted` із заливкою `surface` і межею `line`, для шапки), `size` (`md`, `lg`), `icon` (`none`, `arrow`), `iconOnly` (кнопка лише з іконкою, потрібен `aria-label`), `href` (стає `next/link`; `disabled`, `type`, `onClick` тоді не діють), `disabled`, `disabledReason`. Вимкнена через `aria-disabled`, пояснення під нею зв'язане через `aria-describedby`.
 - `FormField`: поле з підписом над ним. `label` (обов'язковий), `error`, `errorMessage` (текст і іконка `danger` під полем, межа `danger`), `disabled` (нативний), решта атрибутів `input`. Помилка зв'язана через `aria-invalid` і `aria-describedby`.
 - `WorkCard`: картка роботи, уся клікабельна. `title`, `description`, `cover` (імпорт з `assets/`), `coverAlt`, `href`. При hover і Tab росте на 16 px по ширині (`-m-2`), навколо потрібно 8 px вільного місця.
-- `Navigation` (клієнтський): `items` (`{ label, href }`, за замовчуванням Роботи, Про мене, Контакти), `activeHref` (межа `ink-muted`, `aria-current="page"`), `menuLabel`. Hover і Tab: текст `accent` з підкресленням. Менше `md` меню згортається в кнопку, закривається клавішею Escape.
+- `Navigation` (клієнтський): `items` (`{ label, href }`, за замовчуванням Роботи, Про мене, Контакти), `activeHref` (межа `ink-muted`, `aria-current="page"`), `menuLabel`. Hover і Tab: текст `accent` з підкресленням. Менше `md` меню згортається в кнопку-бургер (`Button` `secondary` `iconOnly`, `menuLabel` стає `aria-label`), закривається клавішею Escape.
 
 Імпорт: `import { Button } from "@/components/Button"`.
 

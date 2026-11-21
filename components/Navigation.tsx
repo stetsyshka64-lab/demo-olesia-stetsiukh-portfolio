@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
+import { Button } from "@/components/Button";
 
 export type NavigationItem = {
   /** Текст пункту. */
@@ -54,20 +55,29 @@ export function Navigation({
 
   return (
     <nav aria-label="Головне меню" className="relative flex justify-end md:justify-start">
-      <button
-        ref={buttonRef}
-        type="button"
-        aria-expanded={open}
-        aria-controls={listId}
-        onClick={() => setOpen((value) => !value)}
-        className={
-          "inline-flex items-center justify-center border border-ink-muted bg-transparent px-6 py-3 " +
-          "text-button text-ink rounded-control hover:bg-surface md:hidden " +
-          focusRing
-        }
-      >
-        {menuLabel}
-      </button>
+      <div className="md:hidden">
+        <Button
+          ref={buttonRef}
+          variant="secondary"
+          iconOnly
+          aria-expanded={open}
+          aria-controls={listId}
+          aria-label={menuLabel}
+          onClick={() => setOpen((value) => !value)}
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            className="size-6"
+          >
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+          </svg>
+        </Button>
+      </div>
       <ul
         id={listId}
         className={

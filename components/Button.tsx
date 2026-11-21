@@ -17,6 +17,11 @@ export type ButtonProps = Omit<ComponentProps<"button">, "disabled"> & {
   /** Розмір: `md` — звичайний, `lg` — великий. */
   size?: "md" | "lg";
   /**
+   * Кнопка лише з іконкою (наприклад, бургер): квадратні відступи замість бокових.
+   * Іконку передай у `children`, а назву для скрінрідера в `aria-label`.
+   */
+  iconOnly?: boolean;
+  /**
    * Вимикає кнопку. Кнопка лишається у фокусі (через `aria-disabled`),
    * але клік нічого не робить.
    */
@@ -77,6 +82,7 @@ export function Button({
   icon = "none",
   variant = "primary",
   size = "md",
+  iconOnly = false,
   disabled = false,
   disabledReason,
   className,
@@ -89,7 +95,7 @@ export function Button({
   const showReason = disabled && Boolean(disabledReason);
   const classes = [
     base,
-    (icon === "arrow" ? sizesWithIcon : sizes)[size],
+    iconOnly ? "p-3" : (icon === "arrow" ? sizesWithIcon : sizes)[size],
     disabled ? inactive[variant] : enabled[variant],
     className,
   ]

@@ -18,6 +18,7 @@ const meta = {
 | \`variant\` | \`primary\`, \`secondary\`, \`tinted\` | \`primary\` |
 | \`size\` | \`md\`, \`lg\` | \`md\` |
 | \`icon\` | \`none\` (без іконки), \`arrow\` (стрілка вправо після тексту) | \`none\` |
+| \`iconOnly\` | кнопка лише з іконкою в \`children\` (бургер), відступи 12 px з усіх боків; обов'язковий \`aria-label\` | \`false\` |
 | \`href\` | адреса сторінки чи якоря (\`#cases\`); з нею кнопка стає посиланням | немає |
 | \`disabled\` | \`true\`, \`false\` | \`false\` |
 | \`disabledReason\` | текст пояснення під вимкненою кнопкою | немає |
@@ -68,6 +69,7 @@ import { Button } from "@/components/Button";
     variant: { control: "select", options: ["primary", "secondary", "tinted"] },
     size: { control: "select", options: ["md", "lg"] },
     icon: { control: "select", options: ["none", "arrow"] },
+    iconOnly: { control: "boolean" },
     href: { control: "text" },
     disabled: { control: "boolean" },
     disabledReason: { control: "text" },
