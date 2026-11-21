@@ -26,7 +26,9 @@
 
 ## Компоненти
 
-Заповнимо далі.
+Компоненти лежать у `components/`, історія й docs поруч (`<Компонент>.stories.tsx`, title `Components/<Назва>`). Подробиці дивись у Storybook.
+
+- `Button` (`components/Button.tsx`): кнопка. Параметри: `variant` (`primary` на `accent`, `secondary` без заливки з межею `ink-muted`), `size` (`md`, `lg`), `disabled`, `disabledReason`. Вимкнена кнопка робиться через `aria-disabled`, не `disabled`: лишається у фокусі, пояснення під нею зв'язане через `aria-describedby`. Імпорт: `import { Button } from "@/components/Button"`.
 
 ## Правила
 
