@@ -10,7 +10,7 @@ export type ButtonProps = Omit<ComponentProps<"button">, "disabled"> & {
   /** Іконка після тексту: `none` — без іконки, `arrow` — стрілка вправо. */
   icon?: "none" | "arrow";
   /**
-   * Вигляд кнопки: `primary` — на кольорі accent, `secondary` — без заливки, з межею,
+   * Вигляд кнопки: `primary` — на кольорі accent, `secondary` — заливка `canvas`, з межею,
    * `tinted` — рожева заливка `surface` з межею `line` (кнопка в шапці).
    */
   variant?: "primary" | "secondary" | "tinted";
@@ -59,13 +59,13 @@ function ArrowIcon() {
 
 const enabled = {
   primary: "border-accent bg-accent text-on-accent hover:border-ink hover:bg-ink",
-  secondary: "border-ink-muted bg-transparent text-ink hover:bg-surface",
+  secondary: "border-ink-muted bg-canvas text-ink hover:bg-surface",
   tinted: "border-line bg-surface text-ink hover:bg-line-subtle",
 };
 
 const inactive = {
   primary: "border-surface bg-surface text-ink-muted cursor-not-allowed",
-  secondary: "border-line-subtle bg-transparent text-ink-muted cursor-not-allowed",
+  secondary: "border-line-subtle bg-canvas text-ink-muted cursor-not-allowed",
   tinted: "border-line-subtle bg-surface text-ink-muted cursor-not-allowed",
 };
 
