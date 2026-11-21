@@ -2,9 +2,12 @@
 
 # Портфоліо UI-дизайнера
 
-## Стек
+## Проєкт і стек
 
-- Next.js (App Router), TypeScript, Tailwind CSS.
+- Сайт-портфоліо UI-дизайнера. Next.js 16 (App Router), TypeScript, Tailwind CSS 4, Storybook 10.
+- Сторінки в `app/`, компоненти в `components/`, картинки в `assets/`.
+- Значення дизайн-системи живуть тільки в блоці `@theme` у `app/globals.css`.
+- Запуск: `npm run dev` (сайт), `npm run storybook` (порт 6006).
 
 ## Робота з Git
 
@@ -12,33 +15,66 @@
 - Нових гілок не створюй, поки я прямо не попрошу.
 - Пуш у `main` публікує сайт (Vercel публікує кожен пуш), тому перед пушем питай мене.
 
-## Токени
+## Кольори
 
-Значення живуть тільки в блоці `@theme` у `app/globals.css`. Hex, px і значення в квадратних дужках у компонентах не пишемо. Токени дивимось у Storybook (Foundations/Tokens). Назви за роллю, не за кольором. Стандартні палітру, радіуси й розміри тексту Tailwind скинуто.
+Токени `--color-*`. Стандартну палітру Tailwind скинуто, інших кольорів немає. Назви за роллю, не за кольором.
 
-- Кольори (`--color-*`): `canvas` (фон сторінки), `surface` (поверхня), `line` (рамки кнопок), `line-subtle` (розділювачі й межі карток), `accent`, `on-accent` (текст на акценті), `ink` (текст), `ink-muted` (приглушений текст і межа поля форми, не `line`), `danger` (помилка: текст і межа поля). Класи: `bg-canvas`, `bg-surface`, `border-line`, `bg-accent`, `text-on-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
-- Шрифт (`--font-sans`): Unbounded, підключений у `app/fonts.ts` з `latin` і `cyrillic`.
-- Розміри тексту (`--text-*`, з висотою рядка, трекінгом і жирністю): `text-caption`, `text-button`, `text-body`, `text-lead`, `text-heading`, `text-display`.
-- Радіуси (`--radius-*`): `rounded-control` (кнопки, поля), `rounded-card` (картки, портрет).
-- Пропорції картинок (`--aspect-*`): `aspect-portrait`, `aspect-cover`.
-- Ширина контенту (`--container-page`, клас `max-w-page`): лише для сторінок, не для компонентів.
-- Відступи окремих токенів не мають: тільки числа 2, 3, 4, 6, 8 у класах (8, 12, 16, 24, 32 px), наприклад `p-4`. Більші відступи з макета складаємо з дозволених кроків, а не вводимо нові числа: 48 px = два по 24 (наприклад, `gap-6` двічі або два вкладені відступи по `6`), 60 px = два по 32 (фактично 64 px), 96 px = три по 32. Відстань між великими секціями (`--spacing-section`) поки не визначена.
+- `canvas`: фон сторінки (`bg-canvas`), також заливка вторинної кнопки.
+- `surface`: поверхня, круги, заливка кнопки в шапці (`bg-surface`).
+- `line`: рамки кнопок, обводка стікера (`border-line`).
+- `line-subtle`: розділювачі й межі карток (`border-line-subtle`).
+- `accent`: заливка основної кнопки, колір hover (`bg-accent`, `text-accent`).
+- `on-accent`: текст на акценті (`text-on-accent`).
+- `ink`: основний текст (`text-ink`).
+- `ink-muted`: приглушений текст, межа поля форми й вторинної кнопки (`text-ink-muted`, `border-ink-muted`).
+- `danger`: помилка, текст і межа поля (`text-danger`, `border-danger`).
+
+## Типографіка
+
+- Шрифт `--font-sans`: Unbounded (`latin`, `cyrillic`), підключений у `app/fonts.ts`.
+- Розміри `--text-*` вже містять висоту рядка, трекінг і жирність:
+  - `text-caption` (14 px): мітки меню.
+  - `text-button` (14 px, 500): текст кнопок.
+  - `text-body` (16 px): основний текст; великі літери через `uppercase`.
+  - `text-lead` (18 px, 600): лід.
+  - `text-heading` (20 px, 600): ім'я-логотип, текст стікера.
+  - `text-display` (64 px, 800): заголовок героя.
+
+## Відступи, радіуси й пропорції
+
+- Відступи: числа 2, 3, 4, 6, 8 у класах (8, 12, 16, 24, 32 px), наприклад `p-4`, `gap-6`. Окремих токенів відступів немає.
+- Більше значень складаємо з дозволених кроків: 48 px = два по 24, 64 px = два по 32, 96 px = три по 32.
+- Радіуси: `rounded-control` (2 px: кнопки, поля, картки робіт), `rounded-card` (34 px: портрет).
+- Пропорції: `aspect-portrait` (485 / 536), `aspect-cover` (4 / 3, обкладинка роботи).
+- Ширина контенту: `max-w-page` (1496 px), лише на сторінках.
+- `--spacing-section` (відстань між великими секціями) поки не визначено.
 
 ## Компоненти
 
-Компоненти лежать у `components/`, історія й docs поруч (`<Компонент>.stories.tsx`, title `Components/<Назва>`). Подробиці дивись у Storybook.
+Лежать у `components/`, історія й docs поруч: `<Компонент>.stories.tsx`, title `Components/<Назва>`.
 
-- `Button` (`components/Button.tsx`): кнопка. Параметри: `variant` (`primary` на `accent`, `secondary` із заливкою `canvas` і межею `ink-muted`, `tinted` із заливкою `surface` і межею `line` для шапки), `size` (`md`, `lg`), `icon` (`none`, `arrow`: стрілка вправо після тексту), `href` (з ним кнопка стає посиланням `next/link`, для сторінок і якорів; `disabled`, `type`, `onClick` тоді не діють), `disabled`, `disabledReason`. Вимкнена кнопка робиться через `aria-disabled`, не `disabled`: лишається у фокусі, пояснення під нею зв'язане через `aria-describedby`. Імпорт: `import { Button } from "@/components/Button"`.
-- `FormField` (`components/FormField.tsx`): текстове поле з підписом над ним. Параметри: `label` (обов'язковий), `error`, `errorMessage` (текст і іконка `danger` під полем, межа теж `danger`), `disabled` (нативний `disabled`), решта атрибутів `input`. Межа поля `ink-muted`. Помилка зв'язана з полем через `aria-invalid` і `aria-describedby`. Імпорт: `import { FormField } from "@/components/FormField"`.
-- `WorkCard` (`components/WorkCard.tsx`): картка роботи, уся клікабельна (`next/link`). Параметри: `title`, `description`, `cover` (картинка, імпортована з `assets/`, не з `public`), `coverAlt`, `href`. Кути `rounded-control` (2 px), обкладинка `aspect-cover`. При hover і Tab картка збільшується на 16 px по ширині (`-m-2`), тож навколо потрібно 8 px вільного місця. Імпорт: `import { WorkCard } from "@/components/WorkCard"`.
-- `Navigation` (`components/Navigation.tsx`, клієнтський): меню сайту. Параметри: `items` (`{ label, href }`, за замовчуванням Роботи, Про мене, Контакти), `activeHref` (активний пункт: межа `ink-muted`, `aria-current="page"`), `menuLabel`. Hover і Tab: текст `accent` з підкресленням. На вузькому екрані (менше `md`) меню згортається в кнопку, відкрите лежить поверх контенту й закривається клавішею Escape. Імпорт: `import { Navigation } from "@/components/Navigation"`.
+- `Button`: `variant` (`primary` на `accent`; `secondary` із заливкою `canvas` і межею `ink-muted`; `tinted` із заливкою `surface` і межею `line`, для шапки), `size` (`md`, `lg`), `icon` (`none`, `arrow`), `href` (стає `next/link`; `disabled`, `type`, `onClick` тоді не діють), `disabled`, `disabledReason`. Вимкнена через `aria-disabled`, пояснення під нею зв'язане через `aria-describedby`.
+- `FormField`: поле з підписом над ним. `label` (обов'язковий), `error`, `errorMessage` (текст і іконка `danger` під полем, межа `danger`), `disabled` (нативний), решта атрибутів `input`. Помилка зв'язана через `aria-invalid` і `aria-describedby`.
+- `WorkCard`: картка роботи, уся клікабельна. `title`, `description`, `cover` (імпорт з `assets/`), `coverAlt`, `href`. При hover і Tab росте на 16 px по ширині (`-m-2`), навколо потрібно 8 px вільного місця.
+- `Navigation` (клієнтський): `items` (`{ label, href }`, за замовчуванням Роботи, Про мене, Контакти), `activeHref` (межа `ink-muted`, `aria-current="page"`), `menuLabel`. Hover і Tab: текст `accent` з підкресленням. Менше `md` меню згортається в кнопку, закривається клавішею Escape.
+
+Імпорт: `import { Button } from "@/components/Button"`.
 
 ## Правила
 
-- Виняток для разового декору (рожеві кола, «?!», стікер, портрет у героя на `app/page.tsx`): розміри й позиції задані частками (`w-5/6`, `top-1/12`) і кутами повороту (`-rotate-15`), токенів для них немає. Це свідоме рішення, перевірка на відхилення від системи його не рахує помилкою. Для компонентів виняток не діє.
-
-Решту правил заповнимо далі.
+- Кольори, розміри тексту, радіуси й пропорції беремо тільки з токенів.
+- Класи, яких немає в `@theme` (`text-white`, `bg-black`, `text-red-500` тощо), не використовуємо.
+- Відступи в компонентах тільки з кроків 8, 12, 16, 24 і 32 px (числа 2, 3, 4, 6, 8 у класах). Токени розкладки сторінки (`max-w-page`) тільки на сторінках, не в компонентах.
+- Довільні значення в квадратних дужках (`p-[13px]`, `h-[150px]`, `text-[#...]`) заборонені.
+- Нові кольори не додаємо.
+- Спершу використовуємо готові компоненти, нові створюємо лише коли потрібного немає.
+- Кожен інтерактивний елемент має стани default, hover, focus, disabled; поле форми ще й помилку.
+- Вимкнена кнопка робиться через `aria-disabled` з поясненням, не через `disabled`.
+- Картинки лежать в `assets/` і імпортуються, не з `public`.
+- Після змін у компонентах оновлюємо їхню історію й документацію в Storybook.
+- Виняток для разового декору на `app/page.tsx` (рожеві кола, «?!», стікер, портрет у героя): розміри й позиції частками (`w-5/6`, `top-1/12`) і кутами (`-rotate-15`). Це свідоме рішення, не помилка. Для компонентів виняток не діє.
 
 ## Посилання
 
 - План сайту: `План сайту-портфоліо UI-дизайнера чернетка.md` (у корені проєкту).
+- Storybook: `npm run storybook`, http://localhost:6006. Токени дивись у Foundations/Tokens, компоненти в Components/*.
