@@ -18,11 +18,13 @@ Storybook показує токени й компоненти дизайн-си�
 
 Цей розділ описує токени саме цього проєкту. Якщо назви тут не збігаються з `@theme`, правдою вважай `@theme` і скажи студенту, що розділ треба оновити.
 
-- Кольори: `canvas` (фон сторінки), `surface` (картки й поля), `line` (декоративні лінії й рамки карток), `accent`, `ink`, `ink-muted`, `danger` (помилка). Класи: `bg-canvas`, `bg-surface`, `border-line`, `bg-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
+- Кольори (`--color-*`): `canvas` (фон сторінки), `surface` (поверхня), `line` (рамки кнопок), `line-subtle` (розділювачі й межі карток), `accent`, `on-accent` (текст на акценті), `ink` (текст), `ink-muted` (приглушений текст), `danger` (помилка: текст і межа поля). Класи: `bg-canvas`, `bg-surface`, `border-line`, `border-line-subtle`, `bg-accent`, `text-on-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
+- Шрифт (`--font-sans`): Unbounded, підключений у `app/fonts.ts` з `latin` і `cyrillic`. Клас `font-sans`.
 - Межа поля форми й кнопки без заливки: `ink-muted` (контраст не менше 3:1), не `line`.
-- Радіуси: `rounded-control` (кнопки, поля), `rounded-card` (картки).
-- Розміри тексту: `text-caption`, `text-body`, `text-lead`, `text-heading`, `text-display`. Висота рядка, трекінг і жирність задані парами в `@theme` (`--text-*--line-height`, `--text-*--letter-spacing`, `--text-*--font-weight`).
-- Пропорції картинок: `aspect-cover` (обкладинка картки) та інші `--aspect-*` з `@theme`.
+- Радіуси (`--radius-*`): `rounded-control` (кнопки, поля), `rounded-card` (картки, портрет).
+- Розміри тексту (`--text-*`): `text-caption`, `text-button`, `text-body`, `text-lead`, `text-heading`, `text-display`. Висота рядка, трекінг і жирність задані парами в `@theme` (`--text-*--line-height`, `--text-*--letter-spacing`, `--text-*--font-weight`).
+- Пропорції картинок (`--aspect-*`): `aspect-portrait` (портрет), `aspect-cover` (обкладинка картки).
+- Ширина контенту (`--container-page`, клас `max-w-page`): лише для сторінок, не для компонентів.
 - Відступи: тільки 8, 12, 16, 24, 32 px, тобто числа 2, 3, 4, 6, 8 у класах (`p-2`, `gap-4`).
 
 Усе, що є в історіях, документації й компонентах, будується тільки з цього. Заборонено: hex і rgb, стандартні класи Tailwind поза системою (`bg-blue-600`, `text-sm`), значення в квадратних дужках (`p-[13px]`, `h-[150px]`), відступи поза набором. Після скидання стандартної палітри класи `text-white`, `bg-black`, `bg-white` і подібні мовчки перестають працювати: Tailwind не повідомляє про невідомий клас. Тому після кожної зміни перевіряй, що в коді немає класів, яких немає в `@theme`. Якщо історії чи документації потрібен елемент, якого немає в системі, не вигадуй його: перелічи, чого бракує, і запитай студента.
