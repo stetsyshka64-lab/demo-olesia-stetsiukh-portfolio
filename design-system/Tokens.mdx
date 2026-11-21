@@ -55,11 +55,11 @@ Unbounded. Підключений у `app/fonts.ts` з латиницею й к�
 
 <div className="sb-unstyled flex items-end gap-6 bg-canvas p-6 font-sans text-ink">
   <div className="flex flex-col gap-3">
-    <div className="h-15 w-1/4 border border-line bg-surface rounded-control" />
+    <div className="h-8 w-1/4 border border-line bg-surface rounded-control" />
     <div className="text-caption">rounded-control (кнопки, поля)</div>
   </div>
   <div className="flex flex-col gap-3">
-    <div className="h-15 w-1/4 border border-line bg-surface rounded-card" />
+    <div className="h-8 w-1/4 border border-line bg-surface rounded-card" />
     <div className="text-caption">rounded-card (портрет, картки)</div>
   </div>
 </div>
@@ -79,14 +79,18 @@ Unbounded. Підключений у `app/fonts.ts` з латиницею й к�
 
 ## Відступи
 
-Дозволені тільки ці кроки. Інших у проєкті не використовуємо.
+Окремих токенів відступів немає. Дозволені тільки ці кроки Tailwind, інших у проєкті не використовуємо.
 
 <div className="sb-unstyled flex items-end gap-6 bg-canvas p-6 font-sans text-ink">
+  <div className="flex flex-col gap-3"><div className="size-2 bg-accent" /><div className="text-caption">2 · 8 px</div></div>
   <div className="flex flex-col gap-3"><div className="size-3 bg-accent" /><div className="text-caption">3 · 12 px</div></div>
+  <div className="flex flex-col gap-3"><div className="size-4 bg-accent" /><div className="text-caption">4 · 16 px</div></div>
   <div className="flex flex-col gap-3"><div className="size-6 bg-accent" /><div className="text-caption">6 · 24 px</div></div>
   <div className="flex flex-col gap-3"><div className="size-8 bg-accent" /><div className="text-caption">8 · 32 px</div></div>
-  <div className="flex flex-col gap-3"><div className="size-12 bg-accent" /><div className="text-caption">12 · 48 px</div></div>
-  <div className="flex flex-col gap-3"><div className="size-15 bg-accent" /><div className="text-caption">15 · 60 px</div></div>
 </div>
 
-Відстань між великими секціями й відступ між текстом героя та кнопками поки не визначені.
+Більші відступи з макета складаємо з цих кроків: 48 px = 2 × 24, 60 px = 2 × 32 (фактично 64 px), 96 px = 3 × 32.
+
+## Ширина контенту
+
+`max-w-page` (`--container-page`): 1496px. Лише для сторінок, не для компонентів. Відстань між великими секціями поки не визначена.
