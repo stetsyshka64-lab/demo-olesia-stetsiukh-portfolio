@@ -51,7 +51,14 @@ export default function Home() {
         {/* Шапка */}
         <header className="px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 px-8 py-6">
-            <Link href="/" className="text-heading text-ink">
+            <Link
+              href="/"
+              className={
+                "inline-block origin-left text-heading text-ink motion-safe:transition-transform " +
+                "hover:scale-110 hover:text-accent focus-visible:scale-110 focus-visible:text-accent " +
+                "outline-offset-2 focus-visible:outline-2 focus-visible:outline-ink"
+              }
+            >
               Олеся Стецюх
             </Link>
             <div className="flex flex-wrap items-center gap-6">
