@@ -30,6 +30,7 @@
 
 - `Button` (`components/Button.tsx`): кнопка. Параметри: `variant` (`primary` на `accent`, `secondary` без заливки з межею `ink-muted`), `size` (`md`, `lg`), `disabled`, `disabledReason`. Вимкнена кнопка робиться через `aria-disabled`, не `disabled`: лишається у фокусі, пояснення під нею зв'язане через `aria-describedby`. Імпорт: `import { Button } from "@/components/Button"`.
 - `FormField` (`components/FormField.tsx`): текстове поле з підписом над ним. Параметри: `label` (обов'язковий), `error`, `errorMessage` (текст і іконка `danger` під полем, межа теж `danger`), `disabled` (нативний `disabled`), решта атрибутів `input`. Межа поля `ink-muted`. Помилка зв'язана з полем через `aria-invalid` і `aria-describedby`. Імпорт: `import { FormField } from "@/components/FormField"`.
+- `WorkCard` (`components/WorkCard.tsx`): картка роботи, уся клікабельна (`next/link`). Параметри: `title`, `description`, `cover` (картинка, імпортована з `assets/`, не з `public`), `coverAlt`, `href`. Кути `rounded-control` (2 px), обкладинка `aspect-cover`. При hover і Tab картка збільшується на 16 px по ширині (`-m-2`), тож навколо потрібно 8 px вільного місця. Імпорт: `import { WorkCard } from "@/components/WorkCard"`.
 
 ## Правила
 
