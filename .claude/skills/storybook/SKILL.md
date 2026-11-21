@@ -20,7 +20,7 @@ Storybook показує токени й компоненти дизайн-си�
 
 - Кольори (`--color-*`): `canvas` (фон сторінки), `surface` (поверхня), `line` (рамки кнопок), `line-subtle` (розділювачі й межі карток), `accent`, `on-accent` (текст на акценті), `ink` (текст), `ink-muted` (приглушений текст), `danger` (помилка: текст і межа поля). Класи: `bg-canvas`, `bg-surface`, `border-line`, `border-line-subtle`, `bg-accent`, `text-on-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
 - Шрифт (`--font-sans`): Unbounded, підключений у `app/fonts.ts` з `latin` і `cyrillic`. Клас `font-sans`.
-- Межа поля форми й кнопки без заливки: `ink-muted` (контраст не менше 3:1), не `line`.
+- Межа поля форми: `ink-muted` (контраст не менше 3:1), не `line`. Рамка кнопки без заливки: `line`.
 - Радіуси (`--radius-*`): `rounded-control` (кнопки, поля), `rounded-card` (картки, портрет).
 - Розміри тексту (`--text-*`): `text-caption`, `text-button`, `text-body`, `text-lead`, `text-heading`, `text-display`. Висота рядка, трекінг і жирність задані парами в `@theme` (`--text-*--line-height`, `--text-*--letter-spacing`, `--text-*--font-weight`).
 - Пропорції картинок (`--aspect-*`): `aspect-portrait` (портрет), `aspect-cover` (обкладинка картки).

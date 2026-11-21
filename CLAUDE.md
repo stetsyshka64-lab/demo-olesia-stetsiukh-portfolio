@@ -16,7 +16,7 @@
 
 Значення живуть тільки в блоці `@theme` у `app/globals.css`. Hex, px і значення в квадратних дужках у компонентах не пишемо. Токени дивимось у Storybook (Foundations/Tokens). Назви за роллю, не за кольором. Стандартні палітру, радіуси й розміри тексту Tailwind скинуто.
 
-- Кольори (`--color-*`): `canvas` (фон сторінки), `surface` (поверхня), `line` (рамки кнопок), `line-subtle` (розділювачі й межі карток), `accent`, `on-accent` (текст на акценті), `ink` (текст), `ink-muted` (приглушений текст), `danger` (помилка: текст і межа поля). Класи: `bg-canvas`, `bg-surface`, `border-line`, `bg-accent`, `text-on-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
+- Кольори (`--color-*`): `canvas` (фон сторінки), `surface` (поверхня), `line` (рамки кнопок), `line-subtle` (розділювачі й межі карток), `accent`, `on-accent` (текст на акценті), `ink` (текст), `ink-muted` (приглушений текст і межа поля форми, не `line`), `danger` (помилка: текст і межа поля). Класи: `bg-canvas`, `bg-surface`, `border-line`, `bg-accent`, `text-on-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
 - Шрифт (`--font-sans`): Unbounded, підключений у `app/fonts.ts` з `latin` і `cyrillic`.
 - Розміри тексту (`--text-*`, з висотою рядка, трекінгом і жирністю): `text-caption`, `text-button`, `text-body`, `text-lead`, `text-heading`, `text-display`.
 - Радіуси (`--radius-*`): `rounded-control` (кнопки, поля), `rounded-card` (картки, портрет).
