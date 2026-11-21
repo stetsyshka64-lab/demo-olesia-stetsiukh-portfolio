@@ -159,9 +159,10 @@ export default function Home() {
       </div>
 
       {/* Соцмережі */}
-      <ul className="absolute right-8 top-1/3 hidden flex-col gap-8 lg:flex">
+      <ul className="absolute right-8 top-1/3 hidden flex-col gap-6 lg:flex">
         {socials.map((social) => (
-          <li key={social.label}>
+          // 48 px між іконками: gap 24 + по 12 px зверху й знизу
+          <li key={social.label} className="py-3">
             <a href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer" className="block outline-offset-2 focus-visible:outline-2 focus-visible:outline-ink">
               <Image src={social.icon} alt="" aria-hidden="true" className="size-8" />
             </a>
