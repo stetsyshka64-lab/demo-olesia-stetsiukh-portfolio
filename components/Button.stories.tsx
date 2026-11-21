@@ -27,7 +27,7 @@ const meta = {
 ### Варіанти і стани
 
 - **primary** — заливка \`accent\`, текст \`on-accent\` (контраст 11,56:1). Hover: заливка й межа стають \`ink\` (19,85:1).
-- **secondary** — заливка \`canvas\`, межа \`ink-muted\` (7,81:1 на \`canvas\`), текст \`ink\`. Hover: заливка \`surface\`.
+- **secondary** — заливка \`canvas\`, межа \`ink-muted\` (7,81:1 на \`canvas\`), текст \`ink\`. Hover: заливка \`line-subtle\`.
 - **tinted** — рожева заливка \`surface\`, межа \`line\`, текст \`ink\`. Hover: заливка \`line-subtle\`. Для кнопки в шапці сайту.
 - **focus** — контур 2 px кольору \`ink\` з відступом, видно лише з клавіатури (Tab). Контраст до фону \`canvas\` 19,85:1.
 - **disabled** — приглушені кольори (\`surface\` + \`ink-muted\` для primary, \`line-subtle\` + \`ink-muted\` для secondary, \`surface\` + \`line-subtle\` + \`ink-muted\` для tinted). Кнопка лишається у фокусі: замість атрибута \`disabled\` стоїть \`aria-disabled\`, клік нічого не робить. Якщо задано \`disabledReason\`, пояснення показується під кнопкою й зв'язане з нею через \`aria-describedby\`.
