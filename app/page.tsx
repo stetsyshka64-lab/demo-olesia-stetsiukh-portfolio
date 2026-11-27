@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Navigation } from "@/components/Navigation";
-import { WorkCard } from "@/components/WorkCard";
 import { StickyHeader } from "./StickyHeader";
-import workCover from "@/assets/work-cover-example.svg";
 import circle from "@/assets/hero-circle-soft.svg";
 import circleMobile from "@/assets/hero-circle-soft-mobile.svg";
 import circleTablet from "@/assets/hero-circle-soft-tablet.svg";
@@ -18,6 +16,7 @@ import socialTelegram from "@/assets/social-telegram.svg";
 import sticker from "@/assets/hero-sticker-3d.png";
 
 // Сторінок «Роботи», «Про мене», «Контакти» ще немає, тому пункти меню ведуть на якорі.
+// Блок «Роботи» (#cases) тимчасово прибраний: посилання на нього поки нікуди не ведуть.
 const navItems = [
   { label: "Роботи", href: "#cases" },
   { label: "Про мене", href: "#about" },
@@ -41,24 +40,6 @@ const processRows = [
   processSteps.slice(4, 5),
   processSteps.slice(5, 6),
   processSteps.slice(6),
-];
-
-const works = [
-  {
-    title: "Застосунок для трекінгу звичок",
-    description:
-      "Роль: UI-дизайнерка. Навчальний проєкт: мобільні екрани, user flow і прототип у Figma.",
-  },
-  {
-    title: "Сайт кав'ярні",
-    description:
-      "Роль: UI-дизайнерка. Навчальний проєкт: адаптивний лендінг з меню та формою бронювання.",
-  },
-  {
-    title: "Кабінет онлайн-курсу",
-    description:
-      "Роль: UX/UI-дизайнерка. Навчальний проєкт: дослідження, CJM і дизайн особистого кабінету.",
-  },
 ];
 
 const socials = [
@@ -101,7 +82,7 @@ function Bullet({ className }: { className?: string }) {
 
 export default function Home() {
   return (
-    <main id="top" className="relative overflow-clip bg-canvas">
+    <main id="top" className="relative min-h-screen overflow-clip bg-canvas">
       {/*
         Декор: великі рожеві кола. Шар повторює пропорції кадрів макета
         (375×1180, 768×1080, 1024×1080, 1300×1080, 1440×1080, 1920×1080),
@@ -184,9 +165,9 @@ export default function Home() {
         </div>
       </StickyHeader>
 
-      <div className="relative flex min-h-screen flex-col">
+      <div className="relative flex flex-col">
         {/* Перший екран. Разом із нижнім полем шапки відступ зверху 24 px, від md 32 px */}
-        <section className="mx-auto w-full max-w-page px-4 pt-2 pb-8 md:px-8 md:pt-4 md:pb-0lg:w-113/128 lg:px-0 xl:w-59/65 xl:pr-6 wide:w-11/12 2xl:w-5/6 2xl:pr-0">
+        <section className="mx-auto w-full max-w-page px-4 pt-2 pb-8 md:px-8 md:pt-4 md:pb-0 lg:w-113/128 lg:px-0 xl:w-59/65 xl:pr-6 wide:w-11/12 2xl:w-5/6 2xl:pr-0">
           <div className="flex flex-col md:flex-row md:items-start xl:items-center xl:justify-between xl:pt-3 xl:pr-6 wide:pr-8 2xl:pt-6 2xl:pr-0">
             <div className="flex flex-col gap-8 md:w-29/60 md:shrink-0 lg:w-5/12 xl:w-1/2 wide:w-6/13 2xl:w-2/5">
               <div className="relative flex flex-col items-center gap-4 text-center md:items-start md:gap-6 md:text-left xl:gap-8">
@@ -322,37 +303,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Роботи */}
-      <section id="cases" className="relative mx-auto w-full max-w-page px-4 pt-8 pb-8 md:px-8">
-        {/* Відступ зверху 96 px: три кроки по 32 px */}
-        <div className="pt-8">
-          <div className="pt-8">
-            <div className="flex flex-col gap-8 lg:px-6 xl:px-8">
-              <h2 className="text-display-mobile break-words md:text-display-tablet xl:text-display">
-                Роботи
-              </h2>
-              <ul className="grid gap-6 md:grid-cols-3">
-                {works.map((work) => (
-                  <li key={work.title} className="flex">
-                    <WorkCard
-                      title={work.title}
-                      description={work.description}
-                      cover={workCover}
-                      href="#cases"
-                    />
-                  </li>
-                ))}
-              </ul>
-              <div>
-                <Button href="#contacts" icon="arrow" className="max-md:h-15">
-                  Написати мені
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Соцмережі з 768 px: висота від верху рахується в тому ж кадрі, що й декор */}
       <div className="pointer-events-none absolute inset-x-0 top-0 hidden md:block md:aspect-32/45 lg:aspect-128/135 xl:aspect-65/54 wide:aspect-4/3 2xl:aspect-video">
