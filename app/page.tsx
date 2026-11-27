@@ -215,10 +215,10 @@ export default function Home() {
               <div className="xl:pt-8">
                 <div className="xl:pt-8">
                   <div className="flex flex-col gap-6 xl:flex-row xl:items-center">
-                    <Button href="#cases" icon="arrow" className="max-md:py-2">
+                    <Button href="#cases" icon="arrow" className="max-md:h-15">
                       Переглянути роботи
                     </Button>
-                    <Button href="#contacts" variant="secondary" icon="arrow" className="max-md:py-2">
+                    <Button href="#contacts" variant="secondary" icon="arrow" className="max-md:h-15">
                       Написати мені
                     </Button>
                   </div>
@@ -345,7 +345,7 @@ export default function Home() {
                 ))}
               </ul>
               <div>
-                <Button href="#contacts" icon="arrow">
+                <Button href="#contacts" icon="arrow" className="max-md:h-15">
                   Написати мені
                 </Button>
               </div>
