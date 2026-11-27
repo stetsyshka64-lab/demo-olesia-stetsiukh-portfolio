@@ -4,14 +4,14 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
 
 # Токени
 
-Усі значення живуть в одному місці: блок `@theme` у `app/globals.css`. Ця сторінка читає їх звідти й нічого не дублює. Джерело: макет першого екрана у Figma.
+Усі значення живуть в одному місці: блок `@theme` у `app/globals.css`. Ця сторінка читає їх звідти й нічого не дублює. Джерело: макети першого екрана у Figma (375, 768, 1024, 1300, 1440, 1920).
 
 ## Кольори
 
 <ColorPalette>
   <ColorItem title="canvas" subtitle="фон сторінки" colors={["var(--color-canvas)"]} />
   <ColorItem title="surface" subtitle="поверхня: круги, кнопка в шапці" colors={["var(--color-surface)"]} />
-  <ColorItem title="line" subtitle="рамки кнопок, обводка стікера" colors={["var(--color-line)"]} />
+  <ColorItem title="line" subtitle="рамки кнопок" colors={["var(--color-line)"]} />
   <ColorItem title="line-subtle" subtitle="розділювачі й межі карток (пропозиція)" colors={["var(--color-line-subtle)"]} />
   <ColorItem title="accent" subtitle="заливка основної кнопки" colors={["var(--color-accent)"]} />
   <ColorItem title="on-accent" subtitle="текст на акценті" colors={["var(--color-on-accent)"]} />
@@ -49,6 +49,22 @@ Unbounded. Підключений у `app/fonts.ts` з латиницею й к�
     <div className="text-button">Переглянути роботи</div>
     <div className="text-caption text-ink-muted">text-button: 14 / 24, 500, трекінг 0,7px (текст кнопок)</div>
   </div>
+  <div>
+    <div className="text-display-tablet">Від ідеї до екранів разом.</div>
+    <div className="text-caption text-ink-muted">text-display-tablet: 48 / 48, 800 (заголовок героя від 768 px)</div>
+  </div>
+  <div>
+    <div className="text-display-mobile">Від ідеї до екранів разом.</div>
+    <div className="text-caption text-ink-muted">text-display-mobile: 32 / 38, 800 (заголовок героя на телефоні)</div>
+  </div>
+  <div>
+    <div className="text-lead-mobile">Допоможу стартапам і малому бізнесу пройти шлях від ідеї до готових UI-екранів.</div>
+    <div className="text-caption text-ink-muted">text-lead-mobile: 14 / 20, 600 (лід і логотип на телефоні)</div>
+  </div>
+  <div>
+    <div className="text-micro uppercase">• UI/UX • Research •</div>
+    <div className="text-caption text-ink-muted">text-micro: 10 / 20, 400 (етапи роботи на телефоні)</div>
+  </div>
 </div>
 
 ## Радіуси
@@ -69,7 +85,7 @@ Unbounded. Підключений у `app/fonts.ts` з латиницею й к�
 <div className="sb-unstyled flex items-end gap-6 bg-canvas p-6 font-sans text-ink">
   <div className="flex flex-col gap-3">
     <div className="w-1/4 border border-line bg-surface aspect-portrait" />
-    <div className="text-caption">aspect-portrait (≈9:10)</div>
+    <div className="text-caption">aspect-portrait (≈11:12)</div>
   </div>
   <div className="flex flex-col gap-3">
     <div className="w-1/4 border border-line bg-surface aspect-cover" />
@@ -90,6 +106,10 @@ Unbounded. Підключений у `app/fonts.ts` з латиницею й к�
 </div>
 
 Більші відступи з макета складаємо з цих кроків: 48 px = 2 × 24, 60 px = 2 × 32 (фактично 64 px), 96 px = 3 × 32.
+
+## Ширини екранів
+
+Стандартні `md` (768 px), `lg` (1024 px), `xl` (1280 px), `2xl` (1536 px) і додаткові `compact` (`--breakpoint-compact`, 821 px), `roomy` (`--breakpoint-roomy`, 1380 px) та `wide` (`--breakpoint-wide`, 1440 px).
 
 ## Ширина контенту
 

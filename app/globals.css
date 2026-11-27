@@ -61,8 +61,37 @@
   --text-display--letter-spacing: 0px;
   --text-display--font-weight: 800;
 
+  /* Менші екрани (макети 375, 768, 1024) */
+  --text-display-tablet: 48px; /* заголовок героя від 768 px */
+  --text-display-tablet--line-height: 48px;
+  --text-display-tablet--letter-spacing: 0px;
+  --text-display-tablet--font-weight: 800;
+
+  --text-display-mobile: 32px; /* заголовок героя на телефоні */
+  --text-display-mobile--line-height: 38px;
+  --text-display-mobile--letter-spacing: 0px;
+  --text-display-mobile--font-weight: 800;
+
+  --text-lead-mobile: 14px; /* лід і логотип на телефоні */
+  --text-lead-mobile--line-height: 20px;
+  --text-lead-mobile--letter-spacing: 0px;
+  --text-lead-mobile--font-weight: 600;
+
+  --text-micro: 10px; /* етапи роботи поруч із портретом на телефоні */
+  --text-micro--line-height: 20px;
+  --text-micro--letter-spacing: 0px;
+  --text-micro--font-weight: 400;
+
+  /* Додаткова ширина екрана для макета 1440 px (варіант wide:).
+     Решта ширин стандартні: md 768, lg 1024, xl 1280, 2xl 1536. У rem, щоб порядок був правильний. */
+  --breakpoint-wide: 90rem; /* 1440 px */
+  /* Від цієї ширини до lg стрічка етапів стоїть ближче до героя (compact:). */
+  --breakpoint-compact: 51.3125rem; /* 821 px */
+  /* Нижче цієї ширини (від lg) фото, стікер і «?!» у героя зменшені на 10% (lg:max-roomy:). */
+  --breakpoint-roomy: 86.25rem; /* 1380 px */
+
   /* Пропорції картинок */
-  --aspect-portrait: 485 / 536; /* портрет, ≈9:10 */
+  --aspect-portrait: 483 / 527; /* портрет, ≈11:12 */
   --aspect-cover: 4 / 3; /* обкладинка роботи (пропозиція) */
 
   /* Ширина контенту: лише для сторінок, не для компонентів. Клас max-w-page. */

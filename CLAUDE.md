@@ -21,12 +21,12 @@
 
 - `canvas`: фон сторінки (`bg-canvas`), також заливка вторинної кнопки.
 - `surface`: поверхня, круги, заливка кнопки в шапці (`bg-surface`).
-- `line`: рамки кнопок, обводка стікера (`border-line`).
+- `line`: рамки кнопок, зокрема вторинної (`border-line`).
 - `line-subtle`: розділювачі й межі карток (`border-line-subtle`).
 - `accent`: заливка основної кнопки, колір hover (`bg-accent`, `text-accent`).
 - `on-accent`: текст на акценті (`text-on-accent`).
 - `ink`: основний текст (`text-ink`).
-- `ink-muted`: приглушений текст, межа поля форми й вторинної кнопки (`text-ink-muted`, `border-ink-muted`).
+- `ink-muted`: приглушений текст, межа поля форми (`text-ink-muted`, `border-ink-muted`).
 - `danger`: помилка, текст і межа поля (`text-danger`, `border-danger`).
 
 ## Типографіка
@@ -38,25 +38,33 @@
   - `text-body` (16 px): основний текст; великі літери через `uppercase`.
   - `text-lead` (18 px, 600): лід.
   - `text-heading` (20 px, 600): ім'я-логотип, текст стікера.
-  - `text-display` (64 px, 800): заголовок героя.
+  - `text-display` (64 px, 800): заголовок героя від 1280 px.
+  - `text-display-tablet` (48 px, 800): заголовок героя від 768 px.
+  - `text-display-mobile` (32 px, 800): заголовок героя на телефоні.
+  - `text-lead-mobile` (14 px, 600): лід та ім'я-логотип на телефоні.
+  - `text-micro` (10 px): етапи роботи поруч із портретом на телефоні.
 
 ## Відступи, радіуси й пропорції
 
 - Відступи: числа 2, 3, 4, 6, 8 у класах (8, 12, 16, 24, 32 px), наприклад `p-4`, `gap-6`. Окремих токенів відступів немає.
 - Більше значень складаємо з дозволених кроків: 48 px = два по 24, 64 px = два по 32, 96 px = три по 32.
-- Радіуси: `rounded-control` (2 px: кнопки, поля, картки робіт), `rounded-card` (34 px: портрет).
-- Пропорції: `aspect-portrait` (485 / 536), `aspect-cover` (4 / 3, обкладинка роботи).
+- Радіуси: `rounded-control` (2 px: кнопки, поля, картки робіт), `rounded-card` (34 px: великі картки).
+- Пропорції: `aspect-portrait` (483 / 527), `aspect-cover` (4 / 3, обкладинка роботи).
 - Ширина контенту: `max-w-page` (1496 px), лише на сторінках.
 - `--spacing-section` (відстань між великими секціями) поки не визначено.
+
+## Ширини екранів
+
+Макети першого екрана: 375, 768, 1024, 1300, 1440, 1920. У коді це базові класи, `md`, `lg`, `xl` (від 1280 px), `wide` (від 1440 px, токен `--breakpoint-wide`), `2xl` (від 1536 px). Від 1024 до 1379 px фото, стікер, «?!» і коло за портретом у героя зменшені на 10% (`lg:max-roomy:`, токен `--breakpoint-roomy`). Від 821 до 1023 px стрічка етапів стоїть на 24 px ближче до героя (`compact:`, токен `--breakpoint-compact`). Бокові поля: 16 px на телефоні, 32 px від `md`, 60 px від `lg`.
 
 ## Компоненти
 
 Лежать у `components/`, історія й docs поруч: `<Компонент>.stories.tsx`, title `Components/<Назва>`.
 
-- `Button`: `variant` (`primary` на `accent`; `secondary` із заливкою `canvas` і межею `ink-muted`; `tinted` із заливкою `surface` і межею `line`, для шапки), `size` (`md`, `lg`), `icon` (`none`, `arrow`), `iconOnly` (кнопка лише з іконкою, потрібен `aria-label`), `href` (стає `next/link`; `disabled`, `type`, `onClick` тоді не діють), `disabled`, `disabledReason`. Вимкнена через `aria-disabled`, пояснення під нею зв'язане через `aria-describedby`.
+- `Button`: `variant` (`primary` на `accent`; `secondary` із заливкою `canvas` і межею `line`; `tinted` із заливкою `surface` і межею `line`, для шапки), `size` (`md`, `lg`), `icon` (`none`, `arrow`), `iconOnly` (кнопка лише з іконкою, потрібен `aria-label`), `href` (стає `next/link`; `disabled`, `type`, `onClick` тоді не діють), `disabled`, `disabledReason`. Вимкнена через `aria-disabled`, пояснення під нею зв'язане через `aria-describedby`.
 - `FormField`: поле з підписом над ним. `label` (обов'язковий), `error`, `errorMessage` (текст і іконка `danger` під полем, межа `danger`), `disabled` (нативний), решта атрибутів `input`. Помилка зв'язана через `aria-invalid` і `aria-describedby`.
 - `WorkCard`: картка роботи, уся клікабельна. `title`, `description`, `cover` (імпорт з `assets/`), `coverAlt`, `href`. При hover і Tab росте на 16 px по ширині (`-m-2`), навколо потрібно 8 px вільного місця.
-- `Navigation` (клієнтський): `items` (`{ label, href }`, за замовчуванням Роботи, Про мене, Контакти), `activeHref` (межа `ink-muted`, `aria-current="page"`), `menuLabel`. Hover і Tab: текст `accent` з підкресленням. Менше `md` меню згортається в кнопку-бургер (`Button` `secondary` `iconOnly`, `menuLabel` стає `aria-label`), закривається клавішею Escape.
+- `Navigation` (клієнтський): `items` (`{ label, href }`, за замовчуванням Роботи, Про мене, Контакти), `activeHref` (межа `ink-muted`, `aria-current="page"`), `menuLabel`. Hover і Tab: текст `accent` з підкресленням. Між `md` і `lg` пункти стоять ближче (16 px між текстами замість 32). Менше `md` меню згортається в кнопку-бургер з іконкою `assets/icon-square-menu.svg` (`Button` `secondary` `iconOnly` без власної рамки, `menuLabel` стає `aria-label`), закривається клавішею Escape.
 
 Імпорт: `import { Button } from "@/components/Button"`.
 
@@ -72,7 +80,7 @@
 - Вимкнена кнопка робиться через `aria-disabled` з поясненням, не через `disabled`.
 - Картинки лежать в `assets/` і імпортуються, не з `public`.
 - Після змін у компонентах оновлюємо їхню історію й документацію в Storybook.
-- Виняток для разового декору на `app/page.tsx` (рожеві кола, «?!», стікер, портрет у героя): розміри й позиції частками (`w-5/6`, `top-1/12`) і кутами (`-rotate-15`). Це свідоме рішення, не помилка. Для компонентів виняток не діє.
+- Виняток для разового декору на `app/page.tsx` (рожеві кола, «?!», стікер, портрет у героя, колонки героя, етапи роботи на телефоні, позиція соцмереж): розміри й позиції частками (`w-5/6`, `top-1/12`), кутами (`rotate-23`) і пропорціями шару декору й композиції героя за кадрами макета (`aspect-375/1180`, `aspect-4/3`). Це свідоме рішення, не помилка. Для компонентів виняток не діє.
 
 ## Посилання
 

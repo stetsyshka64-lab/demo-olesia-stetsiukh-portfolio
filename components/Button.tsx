@@ -64,7 +64,7 @@ function ArrowIcon() {
 
 const enabled = {
   primary: "border-accent bg-accent text-on-accent hover:border-ink hover:bg-ink",
-  secondary: "border-ink-muted bg-canvas text-ink hover:bg-line-subtle",
+  secondary: "border-line bg-canvas text-ink hover:bg-line-subtle",
   tinted: "border-line bg-surface text-ink hover:bg-line-subtle",
 };
 

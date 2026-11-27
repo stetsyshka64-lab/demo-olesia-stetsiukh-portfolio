@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { Button } from "@/components/Button";
+import menuIcon from "@/assets/icon-square-menu.svg";
 
 export type NavigationItem = {
   /** Текст пункту. */
@@ -55,7 +57,7 @@ export function Navigation({
 
   return (
     <nav aria-label="Головне меню" className="relative flex justify-end md:justify-start">
-      <div className="md:hidden">
+      <div className="flex md:hidden">
         <Button
           ref={buttonRef}
           variant="secondary"
@@ -63,27 +65,35 @@ export function Navigation({
           aria-expanded={open}
           aria-controls={listId}
           aria-label={menuLabel}
+          // Іконка вже має власну рамку, тому рамку, заливку й відступи кнопки прибрано.
+          className="max-md:border-transparent max-md:bg-transparent max-md:p-0 max-md:hover:bg-line-subtle"
           onClick={() => setOpen((value) => !value)}
         >
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            className="size-6"
-          >
-            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
+          {open ? (
+            <span className="flex size-10 items-center justify-center">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="size-8"
+              >
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </span>
+          ) : (
+            <Image src={menuIcon} alt="" aria-hidden="true" />
+          )}
         </Button>
       </div>
       <ul
         id={listId}
         className={
           (open ? "flex " : "hidden ") +
-          "absolute inset-x-0 top-full z-10 mt-2 flex-col gap-2 border border-line-subtle bg-canvas p-4 rounded-control " +
-          "md:static md:mt-0 md:flex md:flex-row md:gap-4 md:border-0 md:bg-transparent md:p-0"
+          "absolute right-0 top-full z-10 mt-2 w-max flex-col gap-2 border border-line-subtle bg-canvas p-4 rounded-control " +
+          "md:static md:mt-0 md:flex md:w-auto md:flex-row md:gap-0 md:border-0 md:bg-transparent md:p-0"
         }
       >
         {items.map((item) => {
@@ -95,7 +105,7 @@ export function Navigation({
                 aria-current={active ? "page" : undefined}
                 onClick={() => setOpen(false)}
                 className={
-                  "block border px-4 py-2 text-caption uppercase text-ink rounded-control " +
+                  "block border px-4 py-2 text-caption uppercase text-ink rounded-control md:px-2 lg:px-4 " +
                   "underline-offset-4 decoration-2 hover:text-accent hover:underline " +
                   "focus-visible:text-accent focus-visible:underline " +
                   (active ? "border-ink-muted " : "border-transparent ") +
