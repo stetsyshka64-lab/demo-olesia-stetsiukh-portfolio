@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Navigation } from "@/components/Navigation";
 import { WorkCard } from "@/components/WorkCard";
+import { StickyHeader } from "./StickyHeader";
 import workCover from "@/assets/work-cover-example.svg";
 import circle from "@/assets/hero-circle-soft.svg";
 import circleMobile from "@/assets/hero-circle-soft-mobile.svg";
@@ -154,9 +155,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative flex min-h-screen flex-col">
-        {/* Шапка. Бокові поля: 16 px на телефоні, 32 від md, 60 від lg */}
-        <header className="relative z-10 px-4 md:px-8 lg:mx-auto lg:w-113/128 lg:px-0 xl:w-59/65 wide:w-11/12 2xl:w-15/16">
+      {/* Шапка стоїть поза обгорткою героя, щоб лишатися вгорі на всій сторінці */}
+      <StickyHeader>
+        {/* Бокові поля: 16 px на телефоні, 32 від md, 60 від lg */}
+        <div className="px-4 md:px-8 lg:mx-auto lg:w-113/128 lg:px-0 xl:w-59/65 wide:w-11/12 2xl:w-15/16">
           <div className="flex items-center justify-between gap-4 pt-6 md:pt-8">
             <Link
               href="/"
@@ -179,10 +181,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </header>
+        </div>
+      </StickyHeader>
 
-        {/* Перший екран */}
-        <section className="mx-auto w-full max-w-page px-4 pt-6 pb-8 md:px-8 md:pt-8 md:pb-0 lg:w-113/128 lg:px-0 xl:w-59/65 xl:pr-6 wide:w-11/12 2xl:w-5/6 2xl:pr-0">
+      <div className="relative flex min-h-screen flex-col">
+        {/* Перший екран. Разом із нижнім полем шапки відступ зверху 24 px, від md 32 px */}
+        <section className="mx-auto w-full max-w-page px-4 pt-2 pb-8 md:px-8 md:pt-4 md:pb-0lg:w-113/128 lg:px-0 xl:w-59/65 xl:pr-6 wide:w-11/12 2xl:w-5/6 2xl:pr-0">
           <div className="flex flex-col md:flex-row md:items-start xl:items-center xl:justify-between xl:pt-3 xl:pr-6 wide:pr-8 2xl:pt-6 2xl:pr-0">
             <div className="flex flex-col gap-8 md:w-29/60 md:shrink-0 lg:w-5/12 xl:w-1/2 wide:w-6/13 2xl:w-2/5">
               <div className="relative flex flex-col items-center gap-4 text-center md:items-start md:gap-6 md:text-left xl:gap-8">
